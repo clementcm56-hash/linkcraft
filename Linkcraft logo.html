@@ -1,0 +1,1949 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LinkCraft Studio | Professional Websites</title>
+  <!-- Inline SVG favicon — no external file needed -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230d0d0d'/%3E%3Crect x='14' y='10' width='9' height='40' rx='4.5' fill='white'/%3E%3Crect x='14' y='40' width='22' height='9' rx='4.5' fill='white'/%3E%3Cpath d='M56 16 A18 14 0 1 0 56 48' stroke='%23c8f04c' stroke-width='9' stroke-linecap='round' fill='none'/%3E%3C/svg%3E">
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230d0d0d'/%3E%3Crect x='14' y='10' width='9' height='40' rx='4.5' fill='white'/%3E%3Crect x='14' y='40' width='22' height='9' rx='4.5' fill='white'/%3E%3Cpath d='M56 16 A18 14 0 1 0 56 48' stroke='%23c8f04c' stroke-width='9' stroke-linecap='round' fill='none'/%3E%3C/svg%3E">
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@700,800,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #0d0d0d;
+      --paper: #f5f2ec;
+      --accent: #c8f04c;
+      --muted: #6b6b6b;
+      --card-bg: #ffffff;
+      --border: #e2ddd6;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Manrope', sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, .logo, .stat-num, .price-amount,
+    .section-heading, .hero-headline, .service-card h3,
+    .pricing-card .price-label, .btn-primary, nav a.nav-cta {
+      font-family: 'Satoshi', sans-serif;
+    }
+
+    /* ── HEADER ── */
+    header {
+      position: sticky; top: 0; z-index: 100;
+      padding: 1.25rem 4rem;
+      display: flex; justify-content: space-between; align-items: center;
+      background: rgba(245,242,236,0.92);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(14px);
+    }
+
+    .logo {
+      text-decoration: none;
+      display: flex; align-items: center;
+    }
+
+    .logo img { display: block; }
+
+    nav { display: flex; align-items: center; gap: 0.2rem; }
+
+    nav a {
+      font-family: 'Manrope', sans-serif;
+      padding: 0.4rem 0.85rem;
+      text-decoration: none; color: var(--muted);
+      font-size: 0.875rem; font-weight: 500;
+      border-radius: 20px; transition: all 0.2s;
+    }
+
+    nav a:hover { color: var(--ink); background: rgba(0,0,0,0.05); }
+
+    .nav-cta {
+      font-family: 'Satoshi', sans-serif !important;
+      font-weight: 700 !important;
+      background: var(--ink) !important;
+      color: var(--accent) !important;
+      padding: 0.4rem 1.1rem !important;
+      margin-left: 0.5rem;
+    }
+
+    /* ── HERO ── */
+    .hero-section {
+      padding: 7rem 4rem 5rem;
+      max-width: 1200px; margin: 0 auto;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+      margin-bottom: 1.5rem;
+      opacity: 0; animation: fadeUp 0.6s 0.1s forwards;
+    }
+
+    .hero-eyebrow span { width: 22px; height: 1px; background: var(--muted); display: inline-block; }
+
+    .hero-headline {
+      font-family: 'Satoshi', sans-serif;
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 900; line-height: 1.04; letter-spacing: -0.04em;
+      max-width: 14ch; margin-bottom: 1.5rem;
+      opacity: 0; animation: fadeUp 0.6s 0.2s forwards;
+    }
+
+    .hero-headline em {
+      font-style: normal; position: relative; display: inline-block;
+    }
+
+    .hero-headline em::after {
+      content: ''; position: absolute;
+      bottom: 4px; left: 0; right: 0;
+      height: 8px; background: var(--accent);
+      z-index: -1; border-radius: 2px;
+    }
+
+    .hero-sub {
+      font-family: 'Manrope', sans-serif;
+      color: var(--muted); font-size: 1.05rem;
+      max-width: 46ch; margin-bottom: 2.5rem;
+      font-weight: 400; line-height: 1.7;
+      opacity: 0; animation: fadeUp 0.6s 0.3s forwards;
+    }
+
+    .hero-actions {
+      display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;
+      opacity: 0; animation: fadeUp 0.6s 0.4s forwards;
+    }
+
+    .btn-primary {
+      background: var(--ink); color: var(--accent);
+      padding: 0.85rem 1.8rem; border-radius: 6px;
+      text-decoration: none;
+      font-family: 'Satoshi', sans-serif;
+      font-weight: 700; font-size: 0.95rem; letter-spacing: -0.01em;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.15); }
+
+    .btn-ghost {
+      font-family: 'Manrope', sans-serif;
+      color: var(--ink); padding: 0.85rem 1.4rem; border-radius: 6px;
+      text-decoration: none; font-weight: 600; font-size: 0.9rem;
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      border: 1px solid var(--border);
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .btn-ghost:hover { border-color: var(--ink); background: rgba(0,0,0,0.03); }
+
+    .hero-stats {
+      display: flex; gap: 3rem;
+      margin-top: 4rem; padding-top: 2.5rem;
+      border-top: 1px solid var(--border);
+      opacity: 0; animation: fadeUp 0.6s 0.5s forwards;
+    }
+
+    .stat-num {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 2rem; font-weight: 900;
+      letter-spacing: -0.05em; line-height: 1;
+    }
+
+    .stat-label {
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.78rem; color: var(--muted); margin-top: 0.3rem; font-weight: 500;
+    }
+
+    /* ── MARQUEE ── */
+    .marquee-strip {
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      padding: 1rem 0; overflow: hidden;
+      background: var(--ink); color: var(--accent);
+    }
+
+    .marquee-track {
+      display: flex; gap: 2.5rem;
+      animation: marquee 22s linear infinite;
+      white-space: nowrap; width: max-content;
+    }
+
+    .marquee-item {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      display: flex; align-items: center; gap: 1rem;
+    }
+
+    .marquee-item::after { content: '✦'; font-size: 0.55rem; }
+
+    /* ── SHARED SECTION STYLES ── */
+    .section {
+      padding: 6rem 4rem;
+      max-width: 1200px; margin: 0 auto;
+    }
+
+    .section-label {
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted);
+      margin-bottom: 0.75rem;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+
+    .section-label::before { content: ''; width: 16px; height: 1px; background: var(--muted); }
+
+    .section-heading {
+      font-family: 'Satoshi', sans-serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.75rem);
+      font-weight: 800; letter-spacing: -0.035em; line-height: 1.1;
+    }
+
+    .section-sub {
+      font-family: 'Manrope', sans-serif;
+      color: var(--muted); font-size: 1rem;
+      max-width: 50ch; font-weight: 400; line-height: 1.7;
+      margin-top: 0.75rem; margin-bottom: 3rem;
+    }
+
+    /* ── ABOUT / USP ── */
+    .about-section {
+      background: var(--ink); color: white;
+      padding: 6rem 4rem;
+    }
+
+    .about-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1.4fr; gap: 5rem; align-items: start;
+    }
+
+    .about-left .section-label { color: rgba(255,255,255,0.4); }
+    .about-left .section-label::before { background: rgba(255,255,255,0.3); }
+
+    .about-heading {
+      font-family: 'Satoshi', sans-serif;
+      font-size: clamp(1.9rem, 3.5vw, 2.75rem);
+      font-weight: 900; letter-spacing: -0.04em; line-height: 1.1;
+      color: white; margin-top: 0.25rem;
+    }
+
+    .about-heading .highlight { color: var(--accent); }
+
+    .about-body {
+      font-family: 'Manrope', sans-serif;
+      color: rgba(255,255,255,0.65);
+      font-size: 0.95rem; line-height: 1.75;
+      margin-top: 1.25rem; font-weight: 400;
+    }
+
+    .usp-list {
+      display: flex; flex-direction: column; gap: 1px;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px; overflow: hidden;
+    }
+
+    .usp-item {
+      background: rgba(255,255,255,0.04);
+      padding: 1.6rem 2rem;
+      display: flex; align-items: flex-start; gap: 1.25rem;
+      transition: background 0.2s; border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .usp-item:last-child { border-bottom: none; }
+    .usp-item:hover { background: rgba(255,255,255,0.07); }
+
+    .usp-icon {
+      width: 38px; height: 38px; flex-shrink: 0;
+      background: rgba(200,240,76,0.12);
+      border: 1px solid rgba(200,240,76,0.2);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+    }
+
+    .usp-content h4 {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.95rem; font-weight: 700;
+      color: white; margin-bottom: 0.3rem; letter-spacing: -0.01em;
+    }
+
+    .usp-content p {
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.85rem; color: rgba(255,255,255,0.5);
+      line-height: 1.6; font-weight: 400;
+    }
+
+    /* ── SERVICES ── */
+    .services-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 1px; background: var(--border);
+      border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
+    }
+
+    .service-card {
+      background: var(--card-bg); padding: 2.5rem;
+      transition: background 0.2s; position: relative;
+    }
+
+    .service-card:hover { background: #fafaf8; }
+
+    .service-num {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.72rem; font-weight: 700;
+      color: var(--muted); letter-spacing: 0.06em; margin-bottom: 1.25rem;
+    }
+
+    .service-icon {
+      width: 40px; height: 40px; background: var(--paper);
+      border-radius: 8px; display: flex; align-items: center;
+      justify-content: center; margin-bottom: 1rem;
+      color: var(--ink);
+    }
+
+    .service-card h3 {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 1.05rem; font-weight: 700;
+      letter-spacing: -0.02em; margin-bottom: 0.6rem;
+    }
+
+    .service-card p {
+      font-family: 'Manrope', sans-serif;
+      color: var(--muted); font-size: 0.875rem; font-weight: 400; line-height: 1.65;
+    }
+
+    .service-arrow {
+      position: absolute; bottom: 2rem; right: 2rem;
+      width: 32px; height: 32px; border-radius: 50%;
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem; transition: all 0.2s;
+      text-decoration: none; color: var(--ink);
+    }
+
+    .service-card:hover .service-arrow { background: var(--ink); color: var(--accent); border-color: var(--ink); }
+
+    .service-outcome {
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent-text, #2a6000);
+      background: rgba(200,240,76,0.18);
+      border: 1px solid rgba(150,200,20,0.25);
+      border-radius: 5px;
+      padding: 0.35rem 0.65rem;
+      margin-top: 0.75rem;
+      display: inline-block;
+      line-height: 1.4;
+    }
+
+    /* ── PORTFOLIO ── */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .portfolio-card {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      background: var(--card-bg);
+      text-decoration: none;
+      color: var(--ink);
+      transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .portfolio-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.09);
+      border-color: var(--ink);
+    }
+
+    .portfolio-card-preview {
+      position: relative;
+      background: #1a1f2e;
+      height: 220px;
+      overflow: hidden;
+    }
+
+    .portfolio-card-preview.dashed {
+      background: repeating-linear-gradient(
+        45deg, transparent, transparent 10px,
+        rgba(255,255,255,0.03) 10px, rgba(255,255,255,0.03) 20px
+      );
+      border-bottom: 1px solid var(--border);
+      background-color: #f9f8f5;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    .portfolio-preview-inner {
+      padding: 1rem;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .preview-header {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(255,255,255,0.06);
+      border-radius: 6px;
+      padding: 0.4rem 0.75rem;
+    }
+
+    .preview-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(255,255,255,0.2);
+    }
+
+    .preview-dot:nth-child(1) { background: #ff5f57; }
+    .preview-dot:nth-child(2) { background: #febc2e; }
+    .preview-dot:nth-child(3) { background: #28c840; }
+
+    .preview-url {
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.68rem;
+      color: rgba(255,255,255,0.4);
+      margin-left: 0.5rem;
+      letter-spacing: 0.02em;
+    }
+
+    .preview-content {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      flex: 1;
+    }
+
+    .preview-avatar {
+      width: 40px; height: 40px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.85rem; font-weight: 800;
+      color: var(--ink);
+    }
+
+    .preview-lines { display: flex; flex-direction: column; gap: 0.35rem; }
+
+    .preview-line {
+      height: 7px; border-radius: 4px;
+      background: rgba(255,255,255,0.15);
+    }
+
+    .preview-line.wide { width: 70%; }
+    .preview-line.medium { width: 45%; }
+
+    .preview-tags {
+      display: flex; gap: 0.4rem; flex-wrap: wrap;
+    }
+
+    .preview-tags span {
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.65rem; font-weight: 600;
+      background: rgba(200,240,76,0.15);
+      color: var(--accent);
+      border: 1px solid rgba(200,240,76,0.25);
+      border-radius: 4px;
+      padding: 0.15rem 0.5rem;
+      letter-spacing: 0.04em;
+    }
+
+    .preview-stats {
+      display: flex; gap: 1rem; margin-top: auto;
+    }
+
+    .preview-stat {
+      display: flex; flex-direction: column;
+    }
+
+    .preview-stat strong {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.85rem; font-weight: 800;
+      color: white; line-height: 1;
+    }
+
+    .preview-stat span {
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.62rem; color: rgba(255,255,255,0.4);
+      margin-top: 0.1rem;
+    }
+
+    .portfolio-card-overlay {
+      position: absolute; inset: 0;
+      background: rgba(13,13,13,0.75);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; transition: opacity 0.25s;
+    }
+
+    .portfolio-card-overlay span {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 1rem; font-weight: 800;
+      color: var(--accent);
+      letter-spacing: -0.01em;
+    }
+
+    .portfolio-card:hover .portfolio-card-overlay { opacity: 1; }
+
+    .portfolio-card-info {
+      padding: 1.5rem;
+      display: flex; flex-direction: column; gap: 0.5rem;
+      flex: 1;
+    }
+
+    .portfolio-card-meta { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 0.25rem; }
+
+    .portfolio-tag {
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      background: rgba(200,240,76,0.15);
+      color: #3a6600;
+      border: 1px solid rgba(150,200,20,0.2);
+      padding: 0.2rem 0.55rem; border-radius: 4px;
+    }
+
+    .portfolio-tag.muted {
+      background: var(--paper);
+      color: var(--muted);
+      border-color: var(--border);
+    }
+
+    .portfolio-card-info h3 {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 1.05rem; font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .portfolio-card-info p {
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.85rem; color: var(--muted);
+      line-height: 1.6; font-weight: 400;
+    }
+
+    .portfolio-card-link {
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.8rem; font-weight: 600;
+      color: var(--muted);
+      margin-top: 0.25rem;
+      display: flex; align-items: center; gap: 0.3rem;
+    }
+
+    .portfolio-card-link.cta-link {
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .placeholder-inner {
+      text-align: center;
+    }
+
+    .placeholder-icon {
+      font-size: 1.5rem;
+      color: var(--border);
+      margin-bottom: 0.5rem;
+    }
+
+    .placeholder-inner p {
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.8rem; color: var(--muted); font-weight: 500;
+    }
+
+    .placeholder-card { cursor: default; }
+    .placeholder-card:hover { transform: none; box-shadow: none; border-color: var(--border); }
+
+    /* ── PRICING ── */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .pricing-card {
+      background: var(--card-bg); border: 1px solid var(--border);
+      border-radius: 12px; padding: 2rem;
+      transition: all 0.25s; position: relative;
+    }
+
+    .pricing-card:hover { border-color: var(--ink); transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.08); }
+
+    .pricing-card.featured { background: var(--ink); border-color: var(--ink); color: white; }
+
+    .pricing-card.featured .price-note,
+    .pricing-card.featured .price-desc { color: rgba(255,255,255,0.5); }
+
+    .pricing-badge {
+      display: inline-block;
+      background: var(--accent); color: var(--ink);
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.65rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 0.2rem 0.6rem; border-radius: 3px; margin-bottom: 1.25rem;
+    }
+
+    .price-label {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 0.5rem;
+    }
+
+    .pricing-card.featured .price-label { color: rgba(255,255,255,0.5); }
+
+    .price-amount {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 1.6rem; font-weight: 900;
+      letter-spacing: -0.04em; line-height: 1; margin-bottom: 0.25rem;
+    }
+
+    .price-note {
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.78rem; color: var(--muted); font-weight: 400; margin-bottom: 1rem;
+    }
+
+    .price-desc {
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.85rem; color: var(--muted);
+      font-weight: 400; line-height: 1.55;
+      padding-top: 1rem; border-top: 1px solid var(--border);
+    }
+
+    .pricing-card.featured .price-desc { border-top-color: rgba(255,255,255,0.1); }
+
+    /* ── CONTACT ── */
+    .contact-wrap {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 5rem; align-items: start;
+    }
+
+    .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+
+    .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+
+    label {
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted);
+    }
+
+    input, textarea, select {
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--border); border-radius: 6px;
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.9rem; background: var(--card-bg); color: var(--ink);
+      transition: border-color 0.2s, box-shadow 0.2s; outline: none; width: 100%;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      border-color: var(--ink);
+      box-shadow: 0 0 0 3px rgba(13,13,13,0.06);
+    }
+
+    textarea { resize: vertical; min-height: 120px; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    .contact-info { display: flex; flex-direction: column; gap: 1.5rem; }
+
+    .contact-detail { display: flex; gap: 1rem; align-items: flex-start; }
+
+    .contact-detail-icon {
+      width: 40px; height: 40px; background: var(--card-bg);
+      border: 1px solid var(--border); border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; flex-shrink: 0;
+    }
+
+    .contact-detail-text strong {
+      font-family: 'Satoshi', sans-serif;
+      display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.1rem;
+    }
+
+    .contact-detail-text span {
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.875rem; color: var(--muted);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 4rem;
+      display: flex; justify-content: space-between; align-items: center;
+      color: var(--muted);
+      font-family: 'Manrope', sans-serif; font-size: 0.82rem;
+    }
+
+    footer a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--ink); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      header { padding: 1rem 2rem; }
+      nav a:not(.nav-cta) { display: none; }
+      .hero-section, .section { padding: 4rem 2rem; }
+      .about-section { padding: 4rem 2rem; }
+      .about-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .hero-stats { gap: 2rem; flex-wrap: wrap; }
+      .services-grid { grid-template-columns: 1fr; }
+      .contact-wrap { grid-template-columns: 1fr; gap: 3rem; }
+      .form-row { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 0.75rem; text-align: center; }
+    }
+
+    /* ── CURRENCY TOGGLE ── */
+    .currency-toggle {
+      display: inline-flex; align-items: center;
+      background: var(--card-bg); border: 1px solid var(--border);
+      border-radius: 8px; overflow: hidden; margin-bottom: 2rem;
+    }
+    .currency-btn {
+      font-family: 'Satoshi', sans-serif; font-size: 0.8rem; font-weight: 700;
+      padding: 0.45rem 1.1rem; border: none; background: transparent;
+      color: var(--muted); cursor: pointer; transition: all 0.2s;
+    }
+    .currency-btn.active { background: var(--ink); color: var(--accent); }
+
+    /* ── PRICING TABS ── */
+    .price-tabs {
+      display: flex; gap: 0.5rem; flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+
+    .price-tab {
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.82rem; font-weight: 600;
+      padding: 0.5rem 1.1rem;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: transparent; color: var(--muted);
+      cursor: pointer; transition: all 0.2s;
+      display: inline-flex; align-items: center; gap: 0.4rem;
+    }
+
+    .price-tab:hover { border-color: var(--ink); color: var(--ink); }
+    .price-tab.active { background: var(--ink); color: var(--accent); border-color: var(--ink); }
+
+    .price-panel { display: none; }
+    .price-panel.active { display: block; }
+
+    /* ── PRICING CARDS ── */
+    .pt-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+      align-items: start;
+    }
+
+    .pt-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 2rem;
+      position: relative;
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex; flex-direction: column; gap: 0.6rem;
+    }
+
+    .pt-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.07); }
+
+    .pt-card.featured {
+      border-color: var(--ink);
+      box-shadow: 0 0 0 1px var(--ink);
+    }
+
+    .pt-popular {
+      position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+      background: var(--accent); color: var(--ink);
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.65rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 0.2rem 0.8rem; border-radius: 20px;
+      white-space: nowrap;
+    }
+
+    .pt-tier {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      display: inline-block; padding: 0.2rem 0.7rem;
+      border-radius: 4px; width: fit-content;
+    }
+
+    .pt-tier.basic   { background: #e8f5e9; color: #2e7d32; }
+    .pt-tier.advanced { background: #e3f2fd; color: #1565c0; }
+    .pt-tier.premium  { background: #f3e5f5; color: #6a1b9a; }
+
+    .pt-name {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 1.1rem; font-weight: 800;
+      letter-spacing: -0.02em; color: var(--ink);
+    }
+
+    .pt-price {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 1.45rem; font-weight: 900;
+      letter-spacing: -0.03em; color: var(--ink);
+      line-height: 1.1;
+    }
+
+    .pt-per {
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.8rem; font-weight: 400;
+      color: var(--muted);
+    }
+
+    .pt-delivery {
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.78rem; color: var(--muted); font-weight: 500;
+    }
+
+    .pt-best {
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.78rem; font-weight: 600;
+      color: #1565c0;
+      background: #e3f2fd;
+      padding: 0.25rem 0.6rem; border-radius: 4px;
+      width: fit-content;
+    }
+
+    .pt-divider {
+      height: 1px; background: var(--border);
+      margin: 0.4rem 0;
+    }
+
+    .pt-section-label {
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--muted); margin-top: 0.25rem;
+    }
+
+    .pt-section-label.not   { color: #b71c1c; }
+    .pt-section-label.bonus { color: #1b5e20; }
+
+    .pt-list {
+      list-style: none; display: flex; flex-direction: column; gap: 0.45rem;
+      flex: 1;
+    }
+
+    .pt-list li {
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.85rem; font-weight: 400;
+      color: var(--ink); line-height: 1.4;
+      display: flex; align-items: flex-start; gap: 0.5rem;
+    }
+
+    .pt-list li::before {
+      content: '✓'; color: #2e7d32;
+      font-size: 0.75rem; font-weight: 700;
+      margin-top: 0.1rem; flex-shrink: 0;
+    }
+
+    .pt-list.not li { color: var(--muted); }
+    .pt-list.not li::before { content: '✕'; color: #b71c1c; }
+    .pt-list.bonus li::before { content: '★'; color: #e65100; }
+
+    .pt-cta {
+      display: block; text-align: center;
+      background: var(--ink); color: var(--accent);
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.85rem; font-weight: 700;
+      padding: 0.7rem 1.2rem; border-radius: 6px;
+      text-decoration: none; margin-top: auto;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .pt-cta:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(0,0,0,0.12); }
+    .pt-cta.small { padding: 0.5rem 0.9rem; font-size: 0.78rem; display: inline-block; }
+    .pt-cta.small.featured { background: var(--ink); color: var(--accent); }
+
+    .hosting-only { border-style: dashed; }
+
+    /* ── COMPARE TABLE ── */
+    .compare-panel { display: none; }
+    .compare-panel.active { display: block; }
+
+    .compare-wrap { overflow-x: auto; border-radius: 12px; border: 1px solid var(--border); }
+
+    .compare-table {
+      width: 100%; border-collapse: collapse;
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.875rem;
+    }
+
+    .compare-table thead tr {
+      background: var(--ink);
+      color: white;
+    }
+
+    .compare-table th {
+      padding: 1.1rem 1.25rem;
+      text-align: center;
+      font-family: 'Satoshi', sans-serif;
+      font-weight: 700; font-size: 0.85rem;
+    }
+
+    .compare-table th.compare-feature-col { text-align: left; width: 34%; }
+
+    .compare-table td {
+      padding: 0.75rem 1.25rem;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+      color: var(--ink);
+    }
+
+    .compare-table td:first-child { text-align: left; color: var(--muted); font-weight: 500; }
+
+    .compare-table tbody tr:last-child td { border-bottom: none; }
+    .compare-table tbody tr:hover { background: #faf9f6; }
+
+    .ct-highlight { background: rgba(200,240,76,0.08) !important; }
+    thead .ct-highlight { background: #1a2500 !important; }
+
+    .ct-tier {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      display: inline-block; padding: 0.15rem 0.55rem;
+      border-radius: 3px;
+    }
+
+    .ct-tier.basic   { background: rgba(46,125,50,0.25); color: #a5d6a7; }
+    .ct-tier.advanced { background: rgba(21,101,192,0.25); color: #90caf9; }
+    .ct-tier.premium  { background: rgba(106,27,154,0.25); color: #ce93d8; }
+
+    .ct-price {
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.72rem; font-weight: 500;
+      color: rgba(255,255,255,0.55); margin-top: 0.25rem;
+    }
+
+    .compare-cta-row td { padding: 1rem 1.25rem; background: #faf9f6; }
+
+    @media (max-width: 600px) {
+      .pricing-grid { grid-template-columns: 1fr; }
+      .hero-headline { font-size: 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a href="#home" class="logo">
+    <svg width="52" height="36" viewBox="0 0 52 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- L -->
+      <rect x="0" y="0" width="8" height="36" rx="4" fill="#0d0d0d"/>
+      <rect x="0" y="28" width="20" height="8" rx="4" fill="#0d0d0d"/>
+      <!-- C -->
+      <path d="M 50 7 A 17 14 0 1 0 50 29"
+            stroke="#0d0d0d" stroke-width="8"
+            stroke-linecap="round" fill="none"/>
+    </svg>
+    LinkCraft Studio
+  </a>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#portfolio">Work</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#compare">Compare</a>
+    <a href="#contact" class="nav-cta">Get in Touch →</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero-section" id="home">
+  <div class="hero-eyebrow"><span></span>Web Design & Development · Nairobi, Kenya</div>
+  <h1 class="hero-headline">Websites that make you <em>impossible</em> to ignore</h1>
+  <p class="hero-sub">
+    Clean, modern websites for professionals, consultants and small businesses who want their work, services, and credibility accessible through one powerful link.
+  </p>
+  <div class="hero-actions">
+    <a href="#contact" class="btn-primary">Get Your Website →</a>
+    <a href="#portfolio" class="btn-ghost">View Our Work</a>
+  </div>
+  <div class="hero-stats">
+    <div><div class="stat-num">20+</div><div class="stat-label">Independent projects & personal builds</div></div>
+    <div><div class="stat-num">★</div><div class="stat-label">Professional handling & valuing of client work</div></div>
+    <div><div class="stat-num">1–2w</div><div class="stat-label">Fast turnaround per project</div></div>
+    <div><div class="stat-num">↔</div><div class="stat-label">Direct communication & open feedback throughout</div></div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-strip">
+  <div class="marquee-track">
+    <div class="marquee-item">Web Design</div>
+    <div class="marquee-item">Portfolio Sites</div>
+    <div class="marquee-item">E-commerce</div>
+    <div class="marquee-item">Small Business Websites</div>
+    <div class="marquee-item">Online Identity</div>
+    <div class="marquee-item">Responsive Design</div>
+    <div class="marquee-item">Website Maintenance</div>
+    <div class="marquee-item">HTML · CSS · JavaScript</div>
+    <div class="marquee-item">Web Design</div>
+    <div class="marquee-item">Portfolio Sites</div>
+    <div class="marquee-item">E-commerce</div>
+    <div class="marquee-item">Small Business Websites</div>
+    <div class="marquee-item">Online Identity</div>
+    <div class="marquee-item">Responsive Design</div>
+    <div class="marquee-item">Website Maintenance</div>
+    <div class="marquee-item">HTML · CSS · JavaScript</div>
+  </div>
+</div>
+
+<!-- ABOUT / USP -->
+<div class="about-section" id="about">
+  <div class="about-inner">
+    <div class="about-left">
+      <div class="section-label">Why LinkCraft Studio</div>
+      <h2 class="about-heading">
+        More than a website —<br>
+        <span class="highlight">your identity online</span>
+      </h2>
+      <p class="about-body">
+        We're a Nairobi-based web design studio that builds purposeful digital spaces for people who take their work seriously. Every site we build is a deliberate extension of who you are — designed to earn trust at first glance and keep visitors coming back.
+      </p>
+      <p class="about-body" style="margin-top:0.75rem;">
+        Whether you're a freelancer, a growing business, or someone stepping into a new career, your online presence is often the first impression. We make sure it's the right one.
+      </p>
+    </div>
+    <div class="usp-list">
+      <div class="usp-item">
+        <div class="usp-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c8f04c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M6 20v-1a6 6 0 0112 0v1"/><path d="M2 12h3M19 12h3"/></svg>
+        </div>
+        <div class="usp-content">
+          <h4>Building Your Online Identity</h4>
+          <p>Your website isn't just a page — it's your permanent digital address. We craft a cohesive identity that reflects your brand, voice, and goals so you're findable, memorable, and credible across the web.</p>
+        </div>
+      </div>
+      <div class="usp-item">
+        <div class="usp-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c8f04c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <div class="usp-content">
+          <h4>Design with Purpose</h4>
+          <p>Every layout decision, color choice, and line of copy is made to serve your goals — not just to look good. Form and function, in balance.</p>
+        </div>
+      </div>
+      <div class="usp-item">
+        <div class="usp-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c8f04c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+        </div>
+        <div class="usp-content">
+          <h4>Mobile-First, Always</h4>
+          <p>Over 70% of web traffic is mobile. Every site we build looks and works perfectly on any screen — phone, tablet, or desktop.</p>
+        </div>
+      </div>
+      <div class="usp-item">
+        <div class="usp-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c8f04c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <div class="usp-content">
+          <h4>Fast Turnaround</h4>
+          <p>Most projects are delivered within 1–2 weeks. You'll get regular updates, clear communication, and no technical jargon.</p>
+        </div>
+      </div>
+      <div class="usp-item">
+        <div class="usp-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c8f04c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="usp-content">
+          <h4>Ongoing Partnership</h4>
+          <p>Your site doesn't stop needing attention after launch. We offer maintenance plans so your online presence stays fresh and secure long-term.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+  <div class="section-label">What we do</div>
+  <h2 class="section-heading">Services</h2>
+  <p class="section-sub">From simple portfolio sites to full e-commerce platforms — built right, built to last.</p>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-num">01</div>
+      <div class="service-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="18" height="18" rx="3"/>
+          <circle cx="9" cy="9" r="2.5"/>
+          <path d="M3 20c0-2.5 2.5-4 6-4s6 1.5 6 4"/>
+          <path d="M16 8h2M16 12h2"/>
+        </svg>
+      </div>
+      <h3>Personal CV & Portfolio Websites</h3>
+      <p>Turn your CV into a professional online profile you can share on LinkedIn, in emails, and with clients.</p>
+      <p class="service-outcome">Perfect for LinkedIn, job applications, and professional introductions.</p>
+      <a class="service-arrow" href="#pricing" onclick="activatePriceTab('cv')">→</a>
+    </div>
+    <div class="service-card">
+      <div class="service-num">02</div>
+      <div class="service-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 21h18"/>
+          <path d="M5 21V7l7-4 7 4v14"/>
+          <rect x="9" y="13" width="6" height="8"/>
+          <path d="M9 9h.01M15 9h.01"/>
+        </svg>
+      </div>
+      <h3>Small Business Websites</h3>
+      <p>Simple, effective websites that help customers find you, understand your services, and get in touch easily.</p>
+      <p class="service-outcome">Ideal for businesses that want customers to find, trust, and contact them easily.</p>
+      <a class="service-arrow" href="#pricing" onclick="activatePriceTab('business')">→</a>
+    </div>
+    <div class="service-card">
+      <div class="service-num">03</div>
+      <div class="service-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <path d="M16 10a4 4 0 01-8 0"/>
+        </svg>
+      </div>
+      <h3>E-commerce & Advanced Sites</h3>
+      <p>Online stores, booking systems, and payment-enabled websites for growing businesses ready to scale.</p>
+      <p class="service-outcome">Turn visitors into paying customers — 24/7, without lifting a finger.</p>
+      <a class="service-arrow" href="#pricing" onclick="activatePriceTab('portfolio')">→</a>
+    </div>
+    <div class="service-card">
+      <div class="service-num">04</div>
+      <div class="service-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="3"/>
+          <path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/>
+        </svg>
+      </div>
+      <h3>Website Maintenance</h3>
+      <p>Hosting management, regular updates, backups, and priority support to keep your site always running smoothly.</p>
+      <p class="service-outcome">Stay online, stay secure, and never worry about your site again.</p>
+      <a class="service-arrow" href="#pricing" onclick="activatePriceTab('hosting')">→</a>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="section" id="portfolio">
+  <div class="section-label">Our work</div>
+  <h2 class="section-heading">Portfolio</h2>
+  <p class="section-sub">Real projects, real results. More coming soon as our roster grows.</p>
+  <div class="portfolio-grid">
+    <a href="https://clementotienoportfolio.tiiny.site" target="_blank" rel="noopener" class="portfolio-card">
+      <div class="portfolio-card-preview">
+        <div class="portfolio-preview-inner">
+          <div class="preview-header">
+            <span class="preview-dot"></span><span class="preview-dot"></span><span class="preview-dot"></span>
+            <span class="preview-url">clementotienoportfolio.tiiny.site</span>
+          </div>
+          <div class="preview-content">
+            <div class="preview-avatar">CO</div>
+            <div class="preview-lines">
+              <div class="preview-line wide"></div>
+              <div class="preview-line medium"></div>
+            </div>
+            <div class="preview-tags">
+              <span>Trade Finance</span><span>CFA</span><span>SWIFT</span>
+            </div>
+            <div class="preview-stats">
+              <div class="preview-stat"><strong>100%</strong><span>Accuracy</span></div>
+              <div class="preview-stat"><strong>4+</strong><span>Years</span></div>
+              <div class="preview-stat"><strong>ISO</strong><span>20022</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-card-overlay">
+          <span>View Site →</span>
+        </div>
+      </div>
+      <div class="portfolio-card-info">
+        <div class="portfolio-card-meta">
+          <span class="portfolio-tag">Personal Portfolio</span>
+          <span class="portfolio-tag">Finance</span>
+        </div>
+        <h3>Clement Omondi Otieno</h3>
+        <p>A clean professional portfolio for a Trade Finance Officer at Premier Bank Kenya — showcasing experience, competencies, articles, and a contact form.</p>
+        <div class="portfolio-card-link">clementotienoportfolio.tiiny.site <span>↗</span></div>
+      </div>
+    </a>
+
+    <a href="https://kukubasket.tiiny.site" target="_blank" rel="noopener" class="portfolio-card">
+      <div class="portfolio-card-preview" style="background:#0a0a0a;">
+        <div class="portfolio-preview-inner">
+          <div class="preview-header" style="background:rgba(255,255,255,0.05);">
+            <span class="preview-dot"></span><span class="preview-dot"></span><span class="preview-dot"></span>
+            <span class="preview-url" style="color:rgba(255,255,255,0.3);">kukubasket.tiiny.site</span>
+          </div>
+          <div class="preview-content">
+            <div class="preview-avatar" style="background:#FF5C00; color:#0a0a0a; font-family:'Satoshi',sans-serif; letter-spacing:1px;">KH</div>
+            <div class="preview-lines">
+              <div class="preview-line wide" style="background:rgba(255,92,0,0.35);"></div>
+              <div class="preview-line medium" style="background:rgba(255,255,255,0.1);"></div>
+            </div>
+            <div class="preview-tags">
+              <span style="background:rgba(255,92,0,0.15); color:#FF5C00; border-color:rgba(255,92,0,0.3);">Kitchen</span>
+              <span style="background:rgba(255,92,0,0.15); color:#FF5C00; border-color:rgba(255,92,0,0.3);">Butchery</span>
+              <span style="background:rgba(255,92,0,0.15); color:#FF5C00; border-color:rgba(255,92,0,0.3);">WhatsApp Orders</span>
+            </div>
+            <div class="preview-stats">
+              <div class="preview-stat"><strong style="color:#FF5C00;">24/7</strong><span>Orders</span></div>
+              <div class="preview-stat"><strong style="color:#FF5C00;">NBI</strong><span>Nairobi</span></div>
+              <div class="preview-stat"><strong style="color:#FF5C00;">🔥</strong><span>Hot meals</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-card-overlay">
+          <span>View Site →</span>
+        </div>
+      </div>
+      <div class="portfolio-card-info">
+        <div class="portfolio-card-meta">
+          <span class="portfolio-tag">Small Business</span>
+          <span class="portfolio-tag">Food & Hospitality</span>
+        </div>
+        <h3>Kuku House</h3>
+        <p>A bold, dark-themed website for a Nairobi kitchen & butchery — featuring a full menu, WhatsApp ordering, and a brand identity built around raw energy and real food.</p>
+        <div class="portfolio-card-link">kukubasket.tiiny.site <span>↗</span></div>
+      </div>
+    </a>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section" id="pricing">
+  <div class="section-label">Investment</div>
+  <h2 class="section-heading">Transparent Pricing</h2>
+  <p class="section-sub">Toggle between KES (local) and USD (international). USD prices are starting rates — final quote based on scope.</p>
+
+  <div class="currency-toggle" id="currencyToggle">
+    <button class="currency-btn active" onclick="setCurrency('kes')">🇰🇪 KES</button>
+    <button class="currency-btn" onclick="setCurrency('usd')">🌍 USD</button>
+  </div>
+
+  <!-- Category tabs -->
+  <div class="price-tabs">
+    <button class="price-tab active" onclick="showPriceTab('cv')">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="9" cy="9" r="2.5"/><path d="M3 20c0-2.5 2.5-4 6-4s6 1.5 6 4"/><path d="M16 8h2M16 12h2"/></svg>
+      CV & Personal
+    </button>
+    <button class="price-tab" onclick="showPriceTab('portfolio')">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+      Portfolio
+    </button>
+    <button class="price-tab" onclick="showPriceTab('business')">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14"/><rect x="9" y="13" width="6" height="8"/></svg>
+      Small Business
+    </button>
+    <button class="price-tab" onclick="showPriceTab('hosting')">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
+      Hosting & Maintenance
+    </button>
+  </div>
+
+  <!-- ── CV / PERSONAL ── -->
+  <div class="price-panel active" id="tab-cv">
+    <div class="pt-grid">
+
+      <div class="pt-card">
+        <div class="pt-tier basic">Basic</div>
+        <div class="pt-name">Link-Ready CV</div>
+        <div class="pt-price pt-kes">KES 6,000 – 10,000</div>
+        <div class="pt-price pt-usd" style="display:none;">From $100</div>
+        <div class="pt-delivery">⏱ 3–5 days</div>
+        <div class="pt-best">Best for students & early-career professionals</div>
+        <div class="pt-divider"></div>
+        <div class="pt-section-label">Includes</div>
+        <ul class="pt-list">
+          <li>1-page professional CV website</li>
+          <li>Responsive — mobile & desktop</li>
+          <li>Profile, Experience, Education, Skills</li>
+          <li>Downloadable PDF CV</li>
+          <li>Hosted on GitHub Pages / Netlify</li>
+          <li>Shareable link for job applications</li>
+        </ul>
+        <div class="pt-section-label not">Not Included</div>
+        <ul class="pt-list not">
+          <li>Custom domain</li>
+          <li>Ongoing updates</li>
+          <li>Hosting management</li>
+        </ul>
+        <a href="#contact" class="pt-cta">Get Started →</a>
+      </div>
+
+      <div class="pt-card featured">
+        <div class="pt-popular">Most Popular</div>
+        <div class="pt-tier advanced">Advanced</div>
+        <div class="pt-name">Professional Personal Brand</div>
+        <div class="pt-price pt-kes">KES 15,000 – 25,000</div>
+        <div class="pt-price pt-usd" style="display:none;">From $150</div>
+        <div class="pt-delivery">⏱ 7–10 days</div>
+        <div class="pt-best">Most popular choice</div>
+        <div class="pt-divider"></div>
+        <div class="pt-section-label">Includes</div>
+        <ul class="pt-list">
+          <li>2–3 page website</li>
+          <li>Custom colours & typography</li>
+          <li>Contact form with email delivery</li>
+          <li>SEO basics — Google visibility</li>
+          <li>Custom domain setup</li>
+          <li>Managed hosting (1 year)</li>
+        </ul>
+        <div class="pt-section-label bonus">Bonus</div>
+        <ul class="pt-list bonus">
+          <li>1–2 content updates/month (3 months)</li>
+        </ul>
+        <a href="#contact" class="pt-cta">Get Started →</a>
+      </div>
+
+      <div class="pt-card">
+        <div class="pt-tier premium">Premium</div>
+        <div class="pt-name">Personal Brand Hub</div>
+        <div class="pt-price pt-kes">KES 35,000 – 60,000</div>
+        <div class="pt-price pt-usd" style="display:none;">From $250</div>
+        <div class="pt-delivery">⏱ 2–3 weeks</div>
+        <div class="pt-best">For executives, consultants & founders</div>
+        <div class="pt-divider"></div>
+        <div class="pt-section-label">Includes</div>
+        <ul class="pt-list">
+          <li>4–5 pages, fully custom design</li>
+          <li>Blog / insights section</li>
+          <li>Analytics — visitor tracking</li>
+          <li>WhatsApp / Calendly integration</li>
+          <li>Domain + hosting managed (1 year)</li>
+        </ul>
+        <div class="pt-section-label bonus">Maintenance</div>
+        <ul class="pt-list bonus">
+          <li>Priority updates</li>
+          <li>Quarterly site optimisation</li>
+        </ul>
+        <a href="#contact" class="pt-cta">Get Started →</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── PORTFOLIO ── -->
+  <div class="price-panel" id="tab-portfolio">
+    <div class="pt-grid">
+
+      <div class="pt-card">
+        <div class="pt-tier basic">Basic</div>
+        <div class="pt-name">Portfolio Starter</div>
+        <div class="pt-price pt-kes">KES 8,000 – 12,000</div>
+        <div class="pt-price pt-usd" style="display:none;">From $150</div>
+        <div class="pt-divider"></div>
+        <ul class="pt-list">
+          <li>1-page portfolio</li>
+          <li>Up to 5 projects</li>
+          <li>GitHub / Behance links</li>
+          <li>GitHub Pages hosting</li>
+        </ul>
+        <a href="#contact" class="pt-cta">Get Started →</a>
+      </div>
+
+      <div class="pt-card featured">
+        <div class="pt-popular">Most Popular</div>
+        <div class="pt-tier advanced">Advanced</div>
+        <div class="pt-name">Portfolio Pro</div>
+        <div class="pt-price pt-kes">KES 20,000 – 30,000</div>
+        <div class="pt-price pt-usd" style="display:none;">From $200</div>
+        <div class="pt-divider"></div>
+        <ul class="pt-list">
+          <li>Multi-page portfolio</li>
+          <li>Filterable projects</li>
+          <li>Custom domain & hosting</li>
+          <li>Contact form</li>
+        </ul>
+        <a href="#contact" class="pt-cta">Get Started →</a>
+      </div>
+
+      <div class="pt-card">
+        <div class="pt-tier premium">Premium</div>
+        <div class="pt-name">Portfolio Premium</div>
+        <div class="pt-price pt-kes">KES 45,000 – 70,000</div>
+        <div class="pt-price pt-usd" style="display:none;">From $300</div>
+        <div class="pt-divider"></div>
+        <ul class="pt-list">
+          <li>Case-study layout</li>
+          <li>Animations & transitions</li>
+          <li>Blog section</li>
+          <li>Analytics + SEO</li>
+          <li>Maintenance included</li>
+        </ul>
+        <a href="#contact" class="pt-cta">Get Started →</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── SMALL BUSINESS ── -->
+  <div class="price-panel" id="tab-business">
+    <div class="pt-grid">
+
+      <div class="pt-card">
+        <div class="pt-tier basic">Basic</div>
+        <div class="pt-name">Online Presence</div>
+        <div class="pt-price pt-kes">KES 15,000 – 25,000</div>
+        <div class="pt-price pt-usd" style="display:none;">From $200</div>
+        <div class="pt-divider"></div>
+        <ul class="pt-list">
+          <li>3 pages — Home, Services, Contact</li>
+          <li>WhatsApp / Call buttons</li>
+          <li>Google Maps integration</li>
+          <li>Basic hosting setup</li>
+        </ul>
+        <a href="#contact" class="pt-cta">Get Started →</a>
+      </div>
+
+      <div class="pt-card featured">
+        <div class="pt-popular">Most Popular</div>
+        <div class="pt-tier advanced">Advanced</div>
+        <div class="pt-name">Customer Interaction</div>
+        <div class="pt-price pt-kes">KES 30,000 – 50,000</div>
+        <div class="pt-price pt-usd" style="display:none;">From $250</div>
+        <div class="pt-divider"></div>
+        <ul class="pt-list">
+          <li>5 pages</li>
+          <li>Product / service listings</li>
+          <li>Inquiry forms</li>
+          <li>Custom domain & hosting</li>
+          <li>Email integration</li>
+        </ul>
+        <a href="#contact" class="pt-cta">Get Started →</a>
+      </div>
+
+      <div class="pt-card">
+        <div class="pt-tier premium">Premium</div>
+        <div class="pt-name">Digital Sales Channel</div>
+        <div class="pt-price pt-kes">KES 70,000 – 120,000</div>
+        <div class="pt-price pt-usd" style="display:none;">From $350</div>
+        <div class="pt-divider"></div>
+        <ul class="pt-list">
+          <li>Product catalogue</li>
+          <li>Order / booking forms</li>
+          <li>Email notifications</li>
+          <li>Analytics & SEO</li>
+          <li>Maintenance included</li>
+        </ul>
+        <a href="#contact" class="pt-cta">Get Started →</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── HOSTING & MAINTENANCE ── -->
+  <div class="price-panel" id="tab-hosting">
+    <div class="pt-grid">
+
+      <div class="pt-card hosting-only">
+        <div class="pt-tier basic">Hosting Only</div>
+        <div class="pt-name">Domain & Hosting</div>
+        <div class="pt-price pt-kes">KES 4,000 – 6,000 <span class="pt-per">/year</span></div>
+        <div class="pt-price pt-usd" style="display:none;">From $30 <span class="pt-per">/year</span></div>
+        <div class="pt-divider"></div>
+        <ul class="pt-list">
+          <li>Web hosting</li>
+          <li>Domain connection</li>
+          <li>Basic uptime monitoring</li>
+        </ul>
+        <a href="#contact" class="pt-cta">Get Started →</a>
+      </div>
+
+      <div class="pt-card">
+        <div class="pt-tier basic">Basic</div>
+        <div class="pt-name">Maintenance Basic</div>
+        <div class="pt-price pt-kes">KES 3,000 <span class="pt-per">/month</span></div>
+        <div class="pt-price pt-usd" style="display:none;">$30 <span class="pt-per">/month</span></div>
+        <div class="pt-divider"></div>
+        <ul class="pt-list">
+          <li>Hosting & domain renewal</li>
+          <li>Security updates</li>
+          <li>Monthly backups</li>
+        </ul>
+        <a href="#contact" class="pt-cta">Get Started →</a>
+      </div>
+
+      <div class="pt-card featured">
+        <div class="pt-popular">Recommended</div>
+        <div class="pt-tier advanced">Standard</div>
+        <div class="pt-name">Maintenance Standard</div>
+        <div class="pt-price pt-kes">KES 5,000 <span class="pt-per">/month</span></div>
+        <div class="pt-price pt-usd" style="display:none;">$50 <span class="pt-per">/month</span></div>
+        <div class="pt-divider"></div>
+        <ul class="pt-list">
+          <li>Everything in Basic</li>
+          <li>Monthly content updates</li>
+          <li>Minor design tweaks</li>
+          <li>Email support</li>
+        </ul>
+        <a href="#contact" class="pt-cta">Get Started →</a>
+      </div>
+
+      <div class="pt-card">
+        <div class="pt-tier premium">Premium</div>
+        <div class="pt-name">Maintenance Premium</div>
+        <div class="pt-price pt-kes">KES 8,000 – 12,000 <span class="pt-per">/month</span></div>
+        <div class="pt-price pt-usd" style="display:none;">$100 <span class="pt-per">/month</span></div>
+        <div class="pt-divider"></div>
+        <ul class="pt-list">
+          <li>Priority support</li>
+          <li>SEO & performance optimisation</li>
+          <li>Analytics reporting</li>
+          <li>Emergency fixes</li>
+        </ul>
+        <a href="#contact" class="pt-cta">Get Started →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- COMPARE PACKAGES -->
+<section class="section" id="compare" style="padding-top:0;">
+  <div class="section-label">Compare</div>
+  <h2 class="section-heading">Compare Packages</h2>
+  <p class="section-sub">See exactly what's included across tiers before you decide.</p>
+
+  <!-- Compare category tabs -->
+  <div class="price-tabs">
+    <button class="price-tab active" onclick="showCompareTab('compare-cv')">CV & Personal</button>
+    <button class="price-tab" onclick="showCompareTab('compare-business')">Small Business</button>
+    <button class="price-tab" onclick="showCompareTab('compare-maintenance')">Maintenance</button>
+  </div>
+
+  <!-- Compare CV -->
+  <div class="compare-panel active" id="compare-cv">
+    <div class="compare-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th class="compare-feature-col">Feature</th>
+            <th><span class="ct-tier basic">Basic</span><div class="ct-price">KES 6K–10K</div></th>
+            <th class="ct-highlight"><span class="ct-tier advanced">Advanced</span><div class="ct-price">KES 15K–25K</div></th>
+            <th><span class="ct-tier premium">Premium</span><div class="ct-price">KES 35K–60K</div></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Number of pages</td><td>1</td><td class="ct-highlight">2–3</td><td>4–5</td></tr>
+          <tr><td>Responsive design</td><td>✓</td><td class="ct-highlight">✓</td><td>✓</td></tr>
+          <tr><td>Custom colours & fonts</td><td>—</td><td class="ct-highlight">✓</td><td>✓</td></tr>
+          <tr><td>Contact form</td><td>—</td><td class="ct-highlight">✓</td><td>✓</td></tr>
+          <tr><td>Downloadable CV (PDF)</td><td>✓</td><td class="ct-highlight">✓</td><td>✓</td></tr>
+          <tr><td>Custom domain</td><td>—</td><td class="ct-highlight">✓</td><td>✓</td></tr>
+          <tr><td>Managed hosting (1 yr)</td><td>—</td><td class="ct-highlight">✓</td><td>✓</td></tr>
+          <tr><td>SEO basics</td><td>—</td><td class="ct-highlight">✓</td><td>✓</td></tr>
+          <tr><td>Blog / insights section</td><td>—</td><td class="ct-highlight">—</td><td>✓</td></tr>
+          <tr><td>Analytics tracking</td><td>—</td><td class="ct-highlight">—</td><td>✓</td></tr>
+          <tr><td>WhatsApp / Calendly</td><td>—</td><td class="ct-highlight">—</td><td>✓</td></tr>
+          <tr><td>Monthly content updates</td><td>—</td><td class="ct-highlight">3 months</td><td>Ongoing</td></tr>
+          <tr><td>Delivery time</td><td>3–5 days</td><td class="ct-highlight">7–10 days</td><td>2–3 weeks</td></tr>
+          <tr class="compare-cta-row">
+            <td></td>
+            <td><a href="#contact" class="pt-cta small">Choose Basic</a></td>
+            <td class="ct-highlight"><a href="#contact" class="pt-cta small featured">Choose Advanced</a></td>
+            <td><a href="#contact" class="pt-cta small">Choose Premium</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Compare Business -->
+  <div class="compare-panel" id="compare-business">
+    <div class="compare-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th class="compare-feature-col">Feature</th>
+            <th><span class="ct-tier basic">Basic</span><div class="ct-price">KES 15K–25K</div></th>
+            <th class="ct-highlight"><span class="ct-tier advanced">Advanced</span><div class="ct-price">KES 30K–50K</div></th>
+            <th><span class="ct-tier premium">Premium</span><div class="ct-price">KES 70K–120K</div></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Number of pages</td><td>3</td><td class="ct-highlight">5</td><td>5+</td></tr>
+          <tr><td>WhatsApp / Call buttons</td><td>✓</td><td class="ct-highlight">✓</td><td>✓</td></tr>
+          <tr><td>Google Maps</td><td>✓</td><td class="ct-highlight">✓</td><td>✓</td></tr>
+          <tr><td>Product / service listings</td><td>—</td><td class="ct-highlight">✓</td><td>✓</td></tr>
+          <tr><td>Inquiry / contact forms</td><td>—</td><td class="ct-highlight">✓</td><td>✓</td></tr>
+          <tr><td>Custom domain & hosting</td><td>—</td><td class="ct-highlight">✓</td><td>✓</td></tr>
+          <tr><td>Email integration</td><td>—</td><td class="ct-highlight">✓</td><td>✓</td></tr>
+          <tr><td>Product catalogue</td><td>—</td><td class="ct-highlight">—</td><td>✓</td></tr>
+          <tr><td>Order / booking forms</td><td>—</td><td class="ct-highlight">—</td><td>✓</td></tr>
+          <tr><td>Analytics & SEO</td><td>—</td><td class="ct-highlight">—</td><td>✓</td></tr>
+          <tr><td>Maintenance included</td><td>—</td><td class="ct-highlight">—</td><td>✓</td></tr>
+          <tr class="compare-cta-row">
+            <td></td>
+            <td><a href="#contact" class="pt-cta small">Choose Basic</a></td>
+            <td class="ct-highlight"><a href="#contact" class="pt-cta small featured">Choose Advanced</a></td>
+            <td><a href="#contact" class="pt-cta small">Choose Premium</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Compare Maintenance -->
+  <div class="compare-panel" id="compare-maintenance">
+    <div class="compare-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th class="compare-feature-col">Feature</th>
+            <th><span class="ct-tier basic">Basic</span><div class="ct-price">KES 3K/mo</div></th>
+            <th class="ct-highlight"><span class="ct-tier advanced">Standard</span><div class="ct-price">KES 5K/mo</div></th>
+            <th><span class="ct-tier premium">Premium</span><div class="ct-price">KES 8K–12K/mo</div></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Hosting & domain renewal</td><td>✓</td><td class="ct-highlight">✓</td><td>✓</td></tr>
+          <tr><td>Security updates</td><td>✓</td><td class="ct-highlight">✓</td><td>✓</td></tr>
+          <tr><td>Monthly backups</td><td>✓</td><td class="ct-highlight">✓</td><td>✓</td></tr>
+          <tr><td>Monthly content updates</td><td>—</td><td class="ct-highlight">✓</td><td>✓</td></tr>
+          <tr><td>Minor design tweaks</td><td>—</td><td class="ct-highlight">✓</td><td>✓</td></tr>
+          <tr><td>Email support</td><td>—</td><td class="ct-highlight">✓</td><td>✓</td></tr>
+          <tr><td>Priority support</td><td>—</td><td class="ct-highlight">—</td><td>✓</td></tr>
+          <tr><td>SEO & performance optimisation</td><td>—</td><td class="ct-highlight">—</td><td>✓</td></tr>
+          <tr><td>Analytics reporting</td><td>—</td><td class="ct-highlight">—</td><td>✓</td></tr>
+          <tr><td>Emergency fixes</td><td>—</td><td class="ct-highlight">—</td><td>✓</td></tr>
+          <tr class="compare-cta-row">
+            <td></td>
+            <td><a href="#contact" class="pt-cta small">Choose Basic</a></td>
+            <td class="ct-highlight"><a href="#contact" class="pt-cta small featured">Choose Standard</a></td>
+            <td><a href="#contact" class="pt-cta small">Choose Premium</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="section-label">Let's work together</div>
+  <h2 class="section-heading">Get in Touch</h2>
+  <p class="section-sub">Tell us what you need and we'll get back to you within 48 hours.</p>
+  <div class="contact-wrap">
+    <form class="contact-form" action="https://formspree.io/f/mkoqqwor" method="POST" onsubmit="handleSubmit(event)">
+      <!-- Formspree hidden fields -->
+      <input type="hidden" name="_subject" value="New enquiry from LinkCraft Studio website" />
+      <input type="text" name="_gotcha" style="display:none;" />
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" placeholder="Jane Wanjiku" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="jane@example.com" required />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="service">Service Needed</label>
+        <select id="service" name="service">
+          <option value="">Select a service…</option>
+          <option>Personal CV / Portfolio Site</option>
+          <option>Small Business Website</option>
+          <option>E-commerce Website</option>
+          <option>Website Maintenance</option>
+          <option>Other / Not Sure Yet</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="message">Tell Us About Your Project</label>
+        <textarea id="message" name="message" placeholder="What do you do? What kind of site do you need? Any references you like?"></textarea>
+      </div>
+      <button type="submit" class="btn-primary" style="border:none;cursor:pointer;font-size:0.95rem;">
+        Send Message →
+      </button>
+    </form>
+    <div class="contact-info">
+      <div class="contact-detail">
+        <div class="contact-detail-icon">✉️</div>
+        <div class="contact-detail-text">
+          <strong>Email</strong>
+          <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="650d0009090a25090c0b0e0617040311161110010c0a4b060a08">[email&#160;protected]</a></span>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">📍</div>
+        <div class="contact-detail-text">
+          <strong>Location</strong>
+          <span>Nairobi, Kenya — Remote-friendly</span>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">⏱️</div>
+        <div class="contact-detail-text">
+          <strong>Response Time</strong>
+          <span>Within 48 hours on weekdays</span>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">💬</div>
+        <div class="contact-detail-text">
+          <strong>WhatsApp</strong>
+          <span>Available on request</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2026 LinkCraft Studio. All rights reserved.</span>
+  <span>
+    <a href="#home">Back to top</a> ·
+    <a href="#" id="openPrivacy">Privacy Policy</a> ·
+    <a href="/cdn-cgi/l/email-protection#167e737a7a79567a7f787d7564777062656263727f793875797b"><span class="__cf_email__" data-cfemail="78101d14141738141116131b0a191e0c0b0c0d1c1117561b1715">[email&#160;protected]</span></a>
+  </span>
+</footer>
+
+<!-- PRIVACY POLICY MODAL -->
+<div id="privacyModal" class="privacy-overlay">
+  <div class="privacy-modal">
+    <div class="privacy-header">
+      <div>
+        <div class="section-label" style="margin-bottom:0.4rem;">Legal</div>
+        <h2 style="font-family:'Satoshi',sans-serif;font-size:1.5rem;font-weight:800;letter-spacing:-0.03em;">Privacy Policy</h2>
+        <p style="font-size:0.78rem;color:var(--muted);margin-top:0.25rem;font-family:'Manrope',sans-serif;">Last updated: January 2026</p>
+      </div>
+      <button class="privacy-close" id="closePrivacy">✕</button>
+    </div>
+    <div class="privacy-body">
+      <div class="privacy-block">
+        <h3>1. Who We Are</h3>
+        <p>LinkCraft Studio is a web design and development studio based in Nairobi, Kenya. We build professional websites for individuals and businesses. Contact us at <a href="/cdn-cgi/l/email-protection#fe969b929291be929790959d8c9f988a8d8a8b9a9791d09d9193"><span class="__cf_email__" data-cfemail="9df5f8f1f1f2ddf1f4f3f6feeffcfbe9eee9e8f9f4f2b3fef2f0">[email&#160;protected]</span></a> or WhatsApp +254 708 489 127.</p>
+      </div>
+      <div class="privacy-block">
+        <h3>2. What Information We Collect</h3>
+        <p>When you submit our contact form, we may collect your name, email address, phone number (if provided), and details about your enquiry. We do not collect sensitive data such as financial details, national ID numbers, or health information.</p>
+      </div>
+      <div class="privacy-block">
+        <h3>3. How We Use Your Information</h3>
+        <p>We use the information you provide solely to respond to your enquiry, communicate project details and timelines, and send invoices where applicable. We will never use your data for unsolicited marketing, and we will never sell or share it with third parties.</p>
+      </div>
+      <div class="privacy-block">
+        <h3>4. How We Store Your Data</h3>
+        <p>Contact form submissions are processed through Formspree, which stores submissions securely and forwards them to our email. You can review Formspree's privacy policy at <a href="https://formspree.io/legal/privacy-policy" target="_blank" rel="noopener">formspree.io</a>. We retain your contact information only as long as necessary to complete your project or respond to your enquiry.</p>
+      </div>
+      <div class="privacy-block">
+        <h3>5. Cookies & Tracking</h3>
+        <p>This website does not use cookies, tracking pixels, or analytics tools that collect personal data. We do not track your behaviour across other websites.</p>
+      </div>
+      <div class="privacy-block">
+        <h3>6. Third-Party Links</h3>
+        <p>Our portfolio section links to third-party websites we have built for clients. We are not responsible for the privacy practices of those websites and encourage you to review their individual policies.</p>
+      </div>
+      <div class="privacy-block">
+        <h3>7. Your Rights</h3>
+        <p>You have the right to request a copy of any personal data we hold about you, ask us to correct inaccurate information, or ask us to delete your information at any time. Contact us at <a href="/cdn-cgi/l/email-protection#3a525f5656557a5653545159485b5c4e494e4f5e535514595557"><span class="__cf_email__" data-cfemail="5139343d3d3e113d383f3a322330372522252435383e7f323e3c">[email&#160;protected]</span></a> to exercise these rights.</p>
+      </div>
+      <div class="privacy-block">
+        <h3>8. Changes to This Policy</h3>
+        <p>We may update this policy from time to time. Changes will be reflected on this page with an updated date. Continued use of this website after changes are posted constitutes your acceptance.</p>
+      </div>
+      <div class="privacy-block">
+        <h3>9. Contact</h3>
+        <p>Questions about this policy? Email <a href="/cdn-cgi/l/email-protection#aac2cfc6c6c5eac6c3c4c1c9d8cbccded9dedfcec3c584c9c5c7"><span class="__cf_email__" data-cfemail="87efe2ebebe8c7ebeee9ece4f5e6e1f3f4f3f2e3eee8a9e4e8ea">[email&#160;protected]</span></a> or WhatsApp +254 708 489 127.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .privacy-overlay {
+    display: none; position: fixed; inset: 0; z-index: 9999;
+    background: rgba(13,13,13,0.65);
+    backdrop-filter: blur(4px);
+    align-items: center; justify-content: center; padding: 1.5rem;
+  }
+  .privacy-overlay.open { display: flex; }
+  .privacy-modal {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-radius: 16px; max-width: 660px; width: 100%;
+    max-height: 88vh; display: flex; flex-direction: column; overflow: hidden;
+  }
+  .privacy-header {
+    padding: 1.75rem 2rem 1.25rem;
+    border-bottom: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: flex-start;
+    flex-shrink: 0;
+  }
+  .privacy-close {
+    background: none; border: 1px solid var(--border);
+    border-radius: 50%; width: 32px; height: 32px;
+    font-size: 0.72rem; cursor: pointer; color: var(--muted);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; transition: all 0.2s; font-family: 'Manrope', sans-serif;
+  }
+  .privacy-close:hover { background: var(--ink); color: white; border-color: var(--ink); }
+  .privacy-body {
+    padding: 1.5rem 2rem 2rem; overflow-y: auto;
+    display: flex; flex-direction: column; gap: 1.4rem;
+  }
+  .privacy-block h3 {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.9rem; font-weight: 700; margin-bottom: 0.4rem;
+  }
+  .privacy-block p {
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.858rem; color: var(--muted); line-height: 1.75;
+  }
+  .privacy-block a { color: var(--ink); }
+</style>
+
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // Privacy modal
+  document.addEventListener('DOMContentLoaded', function() {
+    var modal = document.getElementById('privacyModal');
+    document.getElementById('openPrivacy').addEventListener('click', function(e) {
+      e.preventDefault(); modal.classList.add('open');
+    });
+    document.getElementById('closePrivacy').addEventListener('click', function() {
+      modal.classList.remove('open');
+    });
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) modal.classList.remove('open');
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') modal.classList.remove('open');
+    });
+  });
+
+  // Currency toggle
+  function setCurrency(currency) {
+    document.querySelectorAll('.currency-btn').forEach(b => b.classList.remove('active'));
+    event.target.classList.add('active');
+    document.querySelectorAll('.pt-kes').forEach(el => el.style.display = currency === 'kes' ? '' : 'none');
+    document.querySelectorAll('.pt-usd').forEach(el => el.style.display = currency === 'usd' ? '' : 'none');
+  }
+
+  // Service card arrows → pricing tabs
+  function activatePriceTab(id) {
+    document.querySelectorAll('.price-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.price-tabs:first-of-type .price-tab').forEach(t => t.classList.remove('active'));
+    var panel = document.getElementById('tab-' + id);
+    if (panel) panel.classList.add('active');
+    var tabs = document.querySelectorAll('.price-tabs')[0].querySelectorAll('.price-tab');
+    var map = { cv: 0, portfolio: 1, business: 2, hosting: 3 };
+    if (tabs[map[id]]) tabs[map[id]].classList.add('active');
+  }
+
+  function showPriceTab(id) {
+    document.querySelectorAll('.price-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.price-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    event.target.classList.add('active');
+  }
+
+  function showCompareTab(id) {
+    document.querySelectorAll('.compare-panel').forEach(p => p.classList.remove('active'));
+    const tabs = document.querySelectorAll('.price-tabs');
+    tabs[1].querySelectorAll('.price-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    event.target.classList.add('active');
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const form = e.target;
+    const btn = form.querySelector('button[type="submit"]');
+    const data = new FormData(form);
+
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+    btn.style.opacity = '0.7';
+
+    fetch('https://formspree.io/f/mkoqqwor', {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    })
+    .then(res => {
+      if (res.ok) {
+        btn.textContent = '✓ Message Sent!';
+        btn.style.background = '#2d6a2d';
+        btn.style.color = 'white';
+        btn.style.opacity = '1';
+        form.reset();
+        setTimeout(() => {
+          btn.textContent = 'Send Message →';
+          btn.style.background = '';
+          btn.style.color = '';
+          btn.disabled = false;
+        }, 4000);
+      } else {
+        btn.textContent = '✗ Something went wrong — try again';
+        btn.style.background = '#8b1a1a';
+        btn.style.opacity = '1';
+        setTimeout(() => {
+          btn.textContent = 'Send Message →';
+          btn.style.background = '';
+          btn.disabled = false;
+        }, 4000);
+      }
+    })
+    .catch(() => {
+      btn.textContent = '✗ Network error — try again';
+      btn.style.background = '#8b1a1a';
+      btn.style.opacity = '1';
+      setTimeout(() => {
+        btn.textContent = 'Send Message →';
+        btn.style.background = '';
+        btn.disabled = false;
+      }, 4000);
+    });
+  }
+</script>
+
+<!-- WHATSAPP FLOATING BUTTON -->
+<a href="https://wa.me/254708489127?text=Hi%20LinkCraft%20Studio%2C%20I%27d%20like%20to%20enquire%20about%20a%20website." 
+   target="_blank" rel="noopener" class="wa-float" aria-label="Chat on WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="white">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+  <span class="wa-label">Chat with us</span>
+</a>
+
+<style>
+  .wa-float {
+    position: fixed;
+    bottom: 2rem; right: 2rem;
+    z-index: 999;
+    background: #25d366;
+    color: white;
+    display: flex; align-items: center; gap: 0.6rem;
+    padding: 0.75rem 1.1rem;
+    border-radius: 50p
